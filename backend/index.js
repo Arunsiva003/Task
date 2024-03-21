@@ -3,17 +3,24 @@ const mysql = require('mysql');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
+
 const app = express();
 const PORT = process.env.PORT || 5000;
+require('dotenv').config();
 
 // Database configuration
+const dbConfig = {
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
+};
+
 const pool = mysql.createPool({
   connectionLimit: 10,
-  host: 'b5jp95kgcuf2cbvjobok-mysql.services.clever-cloud.com',
-  user: 'u1jkxmf7bmdsen5r',
-  password: 'wVBATFbynpeBCiqBaFLV',
-  database: 'b5jp95kgcuf2cbvjobok',
+  ...dbConfig
 });
+
 
 // Middlewares
 app.use(cors());
