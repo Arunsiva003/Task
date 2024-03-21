@@ -22,7 +22,7 @@ const AddCodeForm = () => {
 
   useEffect(() => {
     if (id) {
-      axios.get(`http://localhost:5000/getCode/${id}`)
+      axios.get(`https://task-2zkh.onrender.com/getCode/${id}`)
         .then(response => {
           const data = response.data[0];
           setValue(data.sourcecode);
@@ -73,7 +73,7 @@ const AddCodeForm = () => {
     }
 
     try {
-      await axios.post(' http://localhost:5000/codesnippets', {
+      await axios.post(' https://task-2zkh.onrender.com/codesnippets', {
         username: formData.username,
         preferredCodeLang: formData.preferredCodeLang,
         sourceCode: value

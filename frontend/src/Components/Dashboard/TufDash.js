@@ -89,7 +89,7 @@ const AddCodeTable = () => {
   const pageSize = 10;
 
   useEffect(() => {
-    axios.get('http://localhost:5000/codesnippets')
+    axios.get('https://task-2zkh.onrender.com/codesnippets')
       .then(response => {
         setCodeSnippets(response.data);
       })
@@ -97,7 +97,7 @@ const AddCodeTable = () => {
         console.error('Error fetching data:', error);
       });
   }, []);
-  console.log("cs",codeSnippets);
+  // console.log("cs",codeSnippets);
   const handleRowClick = (item) => {
     setSelectedItem(item);
     setSelectedNotes(item.notes);
@@ -106,7 +106,7 @@ const AddCodeTable = () => {
 
   const handleSaveNotes = async (newNotes) => {
     try {
-      await axios.post(`http://localhost:5000/savenotes/${selectedItem.id}`, { notes: newNotes });
+      await axios.post(`https://task-2zkh.onrender.com/savenotes/${selectedItem.id}`, { notes: newNotes });
       console.log('Notes saved successfully');
       setSelectedItem(null);
     } catch (error) {

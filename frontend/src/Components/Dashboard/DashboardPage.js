@@ -1,6 +1,5 @@
 import React from 'react';
 import { Heading, Box } from "@chakra-ui/react";
-// import AddCodeTable from './Dashboard'; // Assuming the file path to your AddCodeTable component
 import AddCodeTable from './TufDash';
 
 const DashboardPage = () => {
