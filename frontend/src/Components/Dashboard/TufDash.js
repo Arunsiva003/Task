@@ -97,7 +97,7 @@ const AddCodeTable = () => {
         console.error('Error fetching data:', error);
       });
   }, []);
-  // console.log("cs",codeSnippets);
+
   const handleRowClick = (item) => {
     setSelectedItem(item);
     setSelectedNotes(item.notes);
@@ -122,10 +122,10 @@ const AddCodeTable = () => {
   return (
     <Box overflowX="auto">
       <div className="go-to-dashboard">
-      <button  type="button" onClick={()=>navigate('/addcode')}>
+        <button  type="button" onClick={()=>navigate('/addcode')}>
           ADD CODE
         </button>
-    </div>
+      </div>
       <StyledTable>
         <Thead>
           <Tr>
@@ -156,8 +156,8 @@ const AddCodeTable = () => {
       </StyledTable>
       <NotesModal isOpen={isOpen} onClose={onClose} initialNotes={selectedNotes} onSave={handleSaveNotes} PrevNotes={selectedNotes} />
       <div style={{ display: "flex", gap:'20%', margin:'2%',justifyContent: "space-between", alignItems: "center" }}>
-        <Button disabled={currentPage === 0} onClick={() => setCurrentPage(currentPage - 1)}>Previous</Button>
-        <Button disabled={currentPage === totalPage - 1} onClick={() => setCurrentPage(currentPage + 1)}>Next</Button>
+        <Button disabled={currentPage === 0} onClick={() => currentPage>1&&setCurrentPage(currentPage - 1)}>Previous</Button>
+        <Button disabled={currentPage === totalPage - 1} onClick={() => {(currentPage<totalPage-1)&&setCurrentPage(currentPage + 1)}}>Next</Button>
       </div>
 
     </Box>
