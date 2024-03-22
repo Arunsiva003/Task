@@ -156,7 +156,7 @@ const AddCodeTable = () => {
       </StyledTable>
       <NotesModal isOpen={isOpen} onClose={onClose} initialNotes={selectedNotes} onSave={handleSaveNotes} PrevNotes={selectedNotes} />
       <div style={{ display: "flex", gap:'20%', margin:'2%',justifyContent: "space-between", alignItems: "center" }}>
-        <Button disabled={currentPage === 0} onClick={() => currentPage>1&&setCurrentPage(currentPage - 1)}>Previous</Button>
+        <Button disabled={currentPage === 0} onClick={() => currentPage>0&&setCurrentPage(currentPage - 1)}>Previous</Button>
         <Button disabled={currentPage === totalPage - 1} onClick={() => {(currentPage<totalPage-1)&&setCurrentPage(currentPage + 1)}}>Next</Button>
       </div>
 
